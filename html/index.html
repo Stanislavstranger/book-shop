@@ -14,6 +14,8 @@
 <body>
     <div class="wrapper">
 
+        <div class="blackout"></div>
+
         <header class="header">
             <div class="header__container _container">
 
@@ -33,13 +35,13 @@
                 <nav class="header__menu">
                     <ul class="menu__list">
                         <li class="menu__item">
-                            <a href="#link" class="menu__link menu__link_active">About Bookshelf</a>
+                            <a href="#" class="menu__link">About Bookshelf</a>
                         </li>
                         <li class="menu__item">
-                            <a href="##link" class="menu__link">New books</a>
+                            <a href="#" class="menu__link">New books</a>
                         </li>
                         <li class="menu__item">
-                            <a href="##link" class="menu__link">Help</a>
+                            <a href="#" class="menu__link">Help</a>
                         </li>
                         <li class="menu__item">
                             <a href="#contacts" class="menu__link">Contacts</a>
@@ -52,8 +54,8 @@
 
         <main class="main">
             <div class="main__container _container">
-                <section id="link" class="content">
-                    <div class="book">
+                <section class="content">
+                    <div id="0" class="book">
                         <div class="book__container">
                             <div class="book__cover">
                                 <img src="../assets/image/Covers/aBanks.jpeg" alt="aBanks">
@@ -61,10 +63,13 @@
                             <h2 class="book__title">Learning React, 2nd Edition</h2>
                             <h3 class="book__autor">Alex Banks, Eve Porcello</h3>
                             <span class="book__price">25$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="magnifier-plus"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="book">
+                    <div id="1" class="book">
                         <div class="book__container">
                             <div class="book__cover">
                                 <img src="../assets/image/Covers/aOsmani.jpeg" alt="aBanks">
@@ -72,10 +77,13 @@
                             <h2 class="book__title">Learning JavaScript Design Patterns</h2>
                             <h3 class="book__autor">Addy Osmani</h3>
                             <span class="book__price">32$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="magnifier-plus"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="book">
+                    <div id="2" class="book">
                         <div class="book__container">
                             <div class="book__cover">
                                 <img src="../assets/image/Covers/bCherny.jpeg" alt="aBanks">
@@ -83,10 +91,13 @@
                             <h2 class="book__title">Programming TypeScript</h2>
                             <h3 class="book__autor">Boris Cherny</h3>
                             <span class="book__price">28$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="book">
+                    <div id="3" class="book">
                         <div class="book__container">
                             <div class="book__cover">
                                 <img src="../assets/image/Covers/bMeck.jpeg" alt="aBanks">
@@ -94,10 +105,13 @@
                             <h2 class="book__title">Node.js in Action</h2>
                             <h3 class="book__autor">Bradley Meck Alex Young and Mike Cantelon</h3>
                             <span class="book__price">38$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
-                    <div class="book">
+                    <div id="4" class="book">
                         <div class="book__container">
                             <div class="book__cover">
                                 <img src="../assets/image/Covers/dCrockford.jpeg" alt="aBanks">
@@ -105,7 +119,10 @@
                             <h2 class="book__title">JavaScript: The Good Parts: The Good Parts</h2>
                             <h3 class="book__autor">Douglas Crockford</h3>
                             <span class="book__price">30$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -116,7 +133,10 @@
                             <h2 class="book__title">JavaScript: The Definitive Guide</h2>
                             <h3 class="book__autor">David Flanagan</h3>
                             <span class="book__price">40$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -128,7 +148,10 @@
                                 JavaScript</h2>
                             <h3 class="book__autor">David Herman</h3>
                             <span class="book__price">22$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -139,7 +162,10 @@
                             <h2 class="book__title">Programming JavaScript Applications</h2>
                             <h3 class="book__autor">Eric Elliott</h3>
                             <span class="book__price">19$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -150,7 +176,10 @@
                             <h2 class="book__title">Secrets of the JavaScript Ninja</h2>
                             <h3 class="book__autor">John Resig and Bear Bibeault</h3>
                             <span class="book__price">33$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -161,7 +190,10 @@
                             <h2 class="book__title">You Don't Know JS Yet: Get Started</h2>
                             <h3 class="book__autor">Kyle Simpson</h3>
                             <span class="book__price">26$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -172,7 +204,10 @@
                             <h2 class="book__title">Learning React, 2nd Edition</h2>
                             <h3 class="book__autor">Alex Banks, Eve Porcello</h3>
                             <span class="book__price">25$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -183,7 +218,10 @@
                             <h2 class="book__title">Learning JavaScript Design Patterns</h2>
                             <h3 class="book__autor">Addy Osmani</h3>
                             <span class="book__price">32$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -194,7 +232,10 @@
                             <h2 class="book__title">Programming TypeScript</h2>
                             <h3 class="book__autor">Boris Cherny</h3>
                             <span class="book__price">28$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -205,7 +246,10 @@
                             <h2 class="book__title">Node.js in Action</h2>
                             <h3 class="book__autor">Bradley Meck Alex Young and Mike Cantelon</h3>
                             <span class="book__price">38$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -216,7 +260,10 @@
                             <h2 class="book__title">JavaScript: The Good Parts: The Good Parts</h2>
                             <h3 class="book__autor">Douglas Crockford</h3>
                             <span class="book__price">30$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
                     <div class="book">
@@ -227,7 +274,10 @@
                             <h2 class="book__title">JavaScript: The Definitive Guide</h2>
                             <h3 class="book__autor">David Flanagan</h3>
                             <span class="book__price">40$</span>
-                            <a href=""><img src="../assets/image/7.png" alt="shopping-cart"></a>
+                            <div class="book__icons">
+                                <a href=""><img src="../assets/icons/magnifier-plus.svg" alt="shopping-cart"></a>
+                                <a href=""><img src="../assets/icons/shopping-cart.svg" alt="shopping-cart"></a>
+                            </div>
                         </div>
                     </div>
 
@@ -246,9 +296,21 @@
                 </a>
             </div>
         </footer>
+
+        <div id="popup" class="popup">
+            <div class="popup__body">
+                <div class="popup__container">
+                    <button class="button-round close-popup"><img src="../assets/icons/close.svg" alt="close"></button>
+                    <div class="popup__content">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <script src="../js/script.js"></script>
     <script src="../js/burger.js"></script>
+    <script src="../js/popup.js"></script>
 </body>
 
 </html>

@@ -152,12 +152,10 @@ a {
     padding-bottom: 10px;
 }
 
-.logo {}
-
 .logo__title {
     font-size: 40px;
     font-family: 'Russo One', "Helvetica Neue", Helvetica, sans-serif;
-    color: rgb(248, 196, 140)
+    color: rgb(248, 196, 140);
 }
 
 .logo__subtitle {
@@ -180,10 +178,6 @@ a {
     display: none;
 }
 
-.burger__line {}
-
-.header__menu {}
-
 .menu__list {
     display: flex;
 }
@@ -194,7 +188,9 @@ a {
     padding-right: 40px;
 }
 
-.menu__link {}
+.menu__link:hover {
+    color: rgb(248, 196, 140);
+}
 
 .menu__link_active {}
 
@@ -252,14 +248,22 @@ a {
         transition: transform 1.2s ease 0s;
     }
 
-    .burger__button {}
+    .blackout._active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(41, 41, 41, 0.6);
+        z-index: 4;
+    }
 
     .header__menu._active {
         position: absolute;
         display: flex;
         justify-content: center;
         top: 100px;
-        right: 0;
+        right: 0px;
         width: 320px;
         height: 100vh;
         overflow: auto;
@@ -277,6 +281,14 @@ a {
 
     .menu__list li:not(:last-child) {
         margin-bottom: 40px;
+    }
+
+    .menu__item:not(:last-child) {
+        padding-right: 0;
+    }
+
+    .menu__link {
+        font-size: 30px;
     }
 }
 
@@ -308,11 +320,19 @@ a {
     width: 100%;
 }
 
+.book:hover{
+    cursor: pointer;
+}
+
 .book__container {
     display: flex;
     align-content: center;
     flex-direction: column;
     color: rgb(75, 74, 74);
+}
+
+.book__container:hover .book__title{
+    color: rgb(248, 196, 140);
 }
 
 .book__cover img {
@@ -341,13 +361,24 @@ a {
     padding-bottom: 10px;
 }
 
-.book__container a{
+.book__container a {
     text-align: center;
 }
 
-.book__container img{
+.book__container img {
     height: 40px;
     width: auto;
+}
+
+.book__icons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.book__icons a img:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: 0.25s;
 }
 
 .shopping-cart {
@@ -504,4 +535,251 @@ a {
 
     }
 
+}
+
+/* ------------------------------------popup--------------------------------------------- */
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(41, 41, 41, 0.6);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s ease 0s;
+    z-index: 5;
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__container {
+    position: relative;
+    max-width: 1004px;
+    max-height: 604px;
+}
+
+@media (max-width: 1199px) {
+    .popup__container {
+        position: relative;
+        max-width: 734px;
+        max-height: 454px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__container {
+        position: relative;
+        max-width: 300px;
+        max-height: 445px;
+    }
+}
+
+.popup__container button {
+    position: absolute;
+    top: -52px;
+    right: 10px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(248, 196, 140);
+    border-radius: 100px;
+}
+
+@media (max-width: 1199px) {
+    .popup__container button {
+        right: -43px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__container button {
+        right: -30px;
+    }
+}
+
+.popup__close {}
+
+.popup__content {
+    position: relative;
+    display: flex;
+    background: #FAFAFA;
+    color: rgb(75, 74, 74);
+    border-radius: 9px;
+    max-width: 89.64%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+    .popup__content {
+        max-width: 630px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__content {
+        max-width: 240px;
+    }
+}
+
+.popup__content:hover {
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+
+.popup__container:not(:hover) .button-round {
+    background: rgb(248, 196, 140);
+    border: none;
+}
+
+.popup__image {
+    height: 500px;
+    width: auto;
+    border-radius: 9px;
+}
+
+@media (max-width: 1199px) {
+    .popup__image {
+        height: 350px;
+        width: auto;
+        border-radius: 9px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__image {
+        display: none;
+    }
+}
+
+.popup__text {
+    padding: 50px 20px 73px 29px;
+    background-color: #ffffff;
+    background-image: url("../assets/image/debut-light.png");
+    border-radius: 9px;
+}
+
+@media (max-width: 1199px) {
+    .popup__text {
+        padding: 10px 5px 20px 11px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__text {
+        padding: 10px;
+    }
+}
+
+.popup__title {
+    font-size: 35px;
+    letter-spacing: 0.06em;
+    line-height: 130%;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+    .popup__title {
+        text-align: center;
+    }
+}
+
+.popup__subtitle {
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    line-height: 115%;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1199px) {
+    .popup__subtitle {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__subtitle {
+        text-align: center;
+    }
+}
+
+.popup__description {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    line-height: 110%;
+    margin-bottom: 44px;
+}
+
+@media (max-width: 1199px) {
+    .popup__description {
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        line-height: 110%;
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .popup__description {
+        margin-bottom: 18px;
+        text-align: justify;
+    }
+}
+
+.popup__list {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    line-height: 110%;
+}
+
+.popup__list h5 {
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    line-height: 110%;
+    font-weight: 700;
+}
+
+.popup__item {
+    position: relative;
+    padding-left: 15px;
+    letter-spacing: 0.06em;
+    margin-bottom: 11px;
+}
+
+@media (max-width: 1199px) {
+    .popup__item {
+        padding-left: 14px;
+        margin-bottom: 7px;
+    }
+}
+
+.popup__item:last-child {
+    margin-bottom: 0;
+}
+
+.popup__item::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 0px;
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgb(248, 196, 140);
 }
