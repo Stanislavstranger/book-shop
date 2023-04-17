@@ -105,6 +105,13 @@ h6 {
     box-sizing: content-box;
 }
 
+@media (max-width:320px) {
+    ._container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
 /* .ibg {
     background-position: center;
     background-size: cover;
@@ -320,8 +327,17 @@ a {
     width: 100%;
 }
 
-.book:hover{
+.book:hover {
     cursor: pointer;
+    cursor: url('../assets/icons/magnifier-plus.svg'), auto;
+}
+
+.book:hover {
+    cursor: url('../assets/icons/magnifier-plus.svg'), auto;
+}
+
+.book:active {
+    cursor: grabbing;
 }
 
 .book__container {
@@ -331,7 +347,7 @@ a {
     color: rgb(75, 74, 74);
 }
 
-.book__container:hover .book__title{
+.book__container:hover .book__title {
     color: rgb(248, 196, 140);
 }
 
@@ -361,18 +377,18 @@ a {
     padding-bottom: 10px;
 }
 
-.book__container a {
+/* .book a {
     text-align: center;
-}
+} */
 
-.book__container img {
+.book img {
     height: 40px;
     width: auto;
 }
 
-.book__icons{
+.book__icons {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .book__icons a img:hover {

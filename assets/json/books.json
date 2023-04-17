@@ -68,5 +68,19 @@
         "title": "Secrets of the JavaScript Ninja",
         "price": 33,
         "description": "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up."
+    },
+    {
+        "author": "Ethan Brown",
+        "imageLink": "../assets/image/Covers/eBrown.jpg",
+        "title": "Learning JavaScript. A guide to creating modern websites",
+        "price": 30,
+        "description": "This edition will introduce you to the rules, specifications, and toolkits used in ES6 in a practical way, as well as how to build efficient client-side and Node.js applications. The book is intended for programmers who have experience with other languages but are unfamiliar with JavaScript. However, for beginners there is useful information."
+    },
+    {
+        "author": "Stoyan Stefanov",
+        "imageLink": "../assets/image/Covers/sStefanov.jpg",
+        "title": "JavaScript. Templates",
+        "price": 28,
+        "description": "The use of templates in JS is in many ways similar to other programming languages, but has its own characteristics. The information in this book is backed up with clear, real-life examples to help you better understand how to solve common problems."
     }
 ]

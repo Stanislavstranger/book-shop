@@ -1,8 +1,9 @@
-const popupLinks = document.querySelectorAll('.book'); console.log(popupLinks);
-const body = document.querySelector('body');
-const lockPadding = document.querySelectorAll('.lock-padding');
+setTimeout(function () {
+    const popupLinks = document.querySelectorAll('.book__container'); console.log(popupLinks);
+    const body = document.querySelector('body');
+    const lockPadding = document.querySelectorAll('.lock-padding');
 
-let unlock = true;
+    let unlock = true;
 
 const timeout = 300;
 
@@ -56,10 +57,9 @@ function popupOpen(currentPopup) {
     }
 }
 
-/* Close popup */
-
 function popupClose(popupActive, doUnlock = true) {
     if (unlock) {
+        popupActive.querySelector('.popup__content').innerHTML = ''; // очистка содержимого popup
         popupActive.classList.remove('open');
         if (doUnlock) {
             bodyUnLock();
@@ -139,20 +139,47 @@ document.addEventListener('keydown', function (e) {
     }
 })();
 
-console.log(books.imageLink);
-
 /* create Popup */
 
 function createPopup(elem) {
-    document.querySelector('.popup__content').innerHTML =
-    `<img src="${books[elem].imageLink}" alt="${books[elem].title}" class="popup__image">
-    <div class="popup__text">
-        <div class="popup__title">${books[elem].title}</div>
-        <h4 class="popup__subtitle">${books[elem].author}</h4>
-        <p class="popup__description">${books[elem].description}</p>
-        <p class="popup__description">${books[elem].price}</p>
-    </div>`;
+    const fragment = document.createDocumentFragment();
+
+    const img = document.createElement('img');
+    img.src = books[elem].imageLink;
+    img.alt = books[elem].title;
+    img.classList.add('popup__image');
+
+    const text = document.createElement('div');
+    text.classList.add('popup__text');
+
+    const title = document.createElement('div');
+    title.classList.add('popup__title');
+    title.textContent = books[elem].title;
+
+    const subtitle = document.createElement('h4');
+    subtitle.classList.add('popup__subtitle');
+    subtitle.textContent = books[elem].author;
+
+    const description1 = document.createElement('p');
+    description1.classList.add('popup__description');
+    description1.textContent = books[elem].description;
+
+    const description2 = document.createElement('p');
+    description2.classList.add('popup__description');
+    description2.textContent = books[elem].price;
+
+    text.appendChild(title);
+    text.appendChild(subtitle);
+    text.appendChild(description1);
+    text.appendChild(description2);
+
+    fragment.appendChild(img);
+    fragment.appendChild(text);
+
+    const container = document.querySelector('.popup__content');
+    container.appendChild(fragment);
 }
+}, 300);
 
 bodyLock();
 bodyUnLock();
