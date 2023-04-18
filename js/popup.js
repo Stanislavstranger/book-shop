@@ -1,5 +1,5 @@
 setTimeout(function () {
-    const popupLinks = document.querySelectorAll('.book__container'); console.log(popupLinks);
+    const popupLinks = document.querySelectorAll('.magnifier-plus'); console.log(popupLinks);
     const body = document.querySelector('body');
     const lockPadding = document.querySelectorAll('.lock-padding');
 

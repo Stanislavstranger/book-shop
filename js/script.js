@@ -1,18 +1,18 @@
-/* const fragmentWrapperOfBody = document.createDocumentFragment();
+/* ------------------------------------wrapper--------------------------------------------- */
+
+const fragmentWrapper = document.createDocumentFragment();
 const wrapperBody = document.createElement('div');
 wrapperBody.classList.add('wrapper');
-fragmentWrapperOfBody.appendChild(wrapperBody);
+fragmentWrapper.appendChild(wrapperBody);
 
 const bodyElement = document.querySelector('body');
 console.log(bodyElement);
 console.log(wrapperBody);
-console.log(fragmentWrapperOfBody);
+console.log(fragmentWrapper);
 
-document.body.insertAdjacentElement('afterend', fragmentWrapperOfBody);
- */
+document.body.appendChild(fragmentWrapper);
+
 /* ------------------------------------header--------------------------------------------- */
-
-const fragmentWrapper = document.createDocumentFragment();
 
 const header = document.createElement("header");
 header.classList.add("header");
@@ -54,35 +54,35 @@ const menuList = document.createElement("ul");
 menuList.classList.add("menu__list");
 
 const menuItems = [
-{
-text: "About Bookshelf",
-href: "#",
-},
-{
-text: "New books",
-href: "#",
-},
-{
-text: "Help",
-href: "#",
-},
-{
-text: "Contacts",
-href: "#contacts",
-},
+    {
+        text: "About Bookshelf",
+        href: "#",
+    },
+    {
+        text: "New books",
+        href: "#",
+    },
+    {
+        text: "Help",
+        href: "#",
+    },
+    {
+        text: "Contacts",
+        href: "#contacts",
+    },
 ];
 
 for (let i = 0; i < menuItems.length; i++) {
-const menuItem = document.createElement("li");
-menuItem.classList.add("menu__item");
+    const menuItem = document.createElement("li");
+    menuItem.classList.add("menu__item");
 
-const menuLink = document.createElement("a");
-menuLink.classList.add("menu__link");
-menuLink.href = menuItems[i].href;
-menuLink.textContent = menuItems[i].text;
+    const menuLink = document.createElement("a");
+    menuLink.classList.add("menu__link");
+    menuLink.href = menuItems[i].href;
+    menuLink.textContent = menuItems[i].text;
 
-menuItem.appendChild(menuLink);
-menuList.appendChild(menuItem);
+    menuItem.appendChild(menuLink);
+    menuList.appendChild(menuItem);
 }
 
 headerMenu.appendChild(menuList);
@@ -94,9 +94,6 @@ const blackout = document.createElement("div");
 blackout.classList.add("blackout");
 
 fragmentWrapper.append(blackout, header);
-
-/* const wrapper = document.querySelector(".wrapper");
-document.body.insertBefore(fragmentWrapper, wrapper); */
 
 const wrapper = document.querySelector(".wrapper");
 wrapper.insertAdjacentElement("afterbegin", header);
@@ -121,19 +118,19 @@ fragmentMain.appendChild(main);
 
 wrapper.appendChild(fragmentMain);
 
-/* ------------------------------------Create book card-------------------------------------- */
+/* ------------------------------------create book------------------------------------------- */
 
 function createBookCard() {
     setTimeout(function () {
-        const fragmentBookCard = document.createDocumentFragment();
+        const fragmentBook = document.createDocumentFragment();
 
         for (let i = 0; i < books.length; i++) {
-            const bookCard = document.createElement("div");
-            bookCard.classList.add("book");
+            const book = document.createElement("div");
+            book.classList.add("book");
 
             const bookContainer = document.createElement("div");
             bookContainer.setAttribute('id', i);
-            bookContainer.classList.add("book__container");
+            bookContainer.classList.add("book__container", "magnifier-plus");
 
             const bookCover = document.createElement("div");
             bookCover.classList.add("book__cover");
@@ -156,29 +153,89 @@ function createBookCard() {
             bookPrice.classList.add("book__price");
             bookPrice.textContent = `${books[i].price}$`;
 
+            const bookIcons = document.createElement("div")
+            bookIcons.classList.add("book__icons");
+
+            const magnifierPlusLink = document.createElement("a");
+            magnifierPlusLink.href = "#";
+            magnifierPlusLink.classList.add("magnifier-plus");
+            magnifierPlusLink.setAttribute('id', i);
+
+            const magnifierPlusImg = document.createElement("img");
+            magnifierPlusImg.src = "../assets/icons/magnifier-plus.svg";
+            magnifierPlusImg.alt = "magnifier-plus";
+
+            const shoppingCartLink = document.createElement("a");
+            shoppingCartLink.href = "#";
+            shoppingCartLink.classList.add("shopping-cart");
+            shoppingCartLink.setAttribute('id', i);
+
+            const shoppingCartImg = document.createElement("img");
+            shoppingCartImg.src = "../assets/icons/shopping-cart.svg";
+            shoppingCartImg.alt = "shopping-cart";
+
+            const tooltip = document.createElement("span");
+            tooltip.classList.add("tooltip");
+            tooltip.textContent = "Liked? Hold down the left key and carry to the shopping cart";
+
             bookContainer.appendChild(bookCover);
             bookContainer.appendChild(bookTitle);
             bookContainer.appendChild(bookAuthor);
             bookContainer.appendChild(bookPrice);
+            bookIcons.appendChild(magnifierPlusLink);
+            magnifierPlusLink.appendChild(magnifierPlusImg);
+            bookIcons.appendChild(shoppingCartLink);
+            shoppingCartLink.appendChild(shoppingCartImg);
 
-            bookCard.appendChild(bookContainer);
-            fragmentBookCard.appendChild(bookCard);
+            book.appendChild(bookContainer);
+            book.appendChild(bookIcons);
+            book.appendChild(tooltip);
+            fragmentBook.appendChild(book);
         }
 
-        const contentBookCard= document.querySelector(".content");
-        contentBookCard.appendChild(fragmentBookCard);
+        const contentBook = document.querySelector(".content");
+        contentBook.appendChild(fragmentBook);
     }, 300);
 }
 
 createBookCard();
 
-/* ------------------------------------ShoppingCart--------------------------------------------- */
+/* ------------------------------------shopping cart--------------------------------------------- */
 
 const fragmentShoppingCart = document.createDocumentFragment();
 
 const sectionShoppingCart = document.createElement("section");
-sectionShoppingCart.classList.add("shopping-cart");
+sectionShoppingCart.classList.add("shopping-cart-all");
 
+const infoShoppingCart = document.createElement("section");
+infoShoppingCart.classList.add("info-shopping-cart");
+
+const addedBooks = document.createElement("h4");
+addedBooks.classList.add("added-books");
+addedBooks.textContent = "Added: 0";
+
+const imgShoppingCart = document.createElement("div");
+imgShoppingCart.classList.add("img-shopping-cart");
+
+const total = document.createElement("h4");
+total.classList.add("total");
+total.textContent = "Total: 0";
+
+const checkoutLink = document.createElement("button");
+checkoutLink.href = "#";
+checkoutLink.classList.add("checkout-link", "button", "button_inactive");
+checkoutLink.textContent = "checkout";
+
+const transferHere = document.createElement("h4");
+transferHere.classList.add("transfer-here");
+transferHere.textContent = "transfer here";
+
+sectionShoppingCart.appendChild(infoShoppingCart);
+infoShoppingCart.appendChild(addedBooks);
+infoShoppingCart.appendChild(imgShoppingCart);
+infoShoppingCart.appendChild(total);
+infoShoppingCart.appendChild(checkoutLink);
+infoShoppingCart.appendChild(transferHere);
 fragmentShoppingCart.appendChild(sectionShoppingCart);
 
 mainContainer.appendChild(fragmentShoppingCart);
@@ -251,11 +308,9 @@ popupDiv.appendChild(popupBodyDiv);
 
 fragmentPopup.appendChild(popupDiv);
 
-// Добавляем фрагмент на страницу в нужное место
-const targetElement = document.querySelector('footer');
-targetElement.appendChild(fragmentPopup);
+wrapper.appendChild(fragmentPopup);
 
-/* Read json data from the file */
+/* --------------------------------Read json data from the file------------------------------------------ */
 
 let books;
 
@@ -267,5 +322,3 @@ fetch("../assets/json/books.json") //path to the file with json data
         books = data;
         console.log(books);
     });
-
-
