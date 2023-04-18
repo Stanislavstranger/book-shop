@@ -1,3 +1,17 @@
+/* const fragmentWrapperOfBody = document.createDocumentFragment();
+const wrapperBody = document.createElement('div');
+wrapperBody.classList.add('wrapper');
+fragmentWrapperOfBody.appendChild(wrapperBody);
+
+const bodyElement = document.querySelector('body');
+console.log(bodyElement);
+console.log(wrapperBody);
+console.log(fragmentWrapperOfBody);
+
+document.body.insertAdjacentElement('afterend', fragmentWrapperOfBody);
+ */
+/* ------------------------------------header--------------------------------------------- */
+
 const fragmentWrapper = document.createDocumentFragment();
 
 const header = document.createElement("header");
@@ -81,8 +95,93 @@ blackout.classList.add("blackout");
 
 fragmentWrapper.append(blackout, header);
 
+/* const wrapper = document.querySelector(".wrapper");
+document.body.insertBefore(fragmentWrapper, wrapper); */
+
 const wrapper = document.querySelector(".wrapper");
-document.body.insertBefore(fragmentWrapper, wrapper);
+wrapper.insertAdjacentElement("afterbegin", header);
+wrapper.insertAdjacentElement("afterbegin", blackout);
+
+/* ------------------------------------main--------------------------------------------- */
+
+const fragmentMain = document.createDocumentFragment();
+
+const main = document.createElement("main");
+main.classList.add("main");
+
+const mainContainer = document.createElement("div");
+mainContainer.classList.add("main__container", "_container");
+
+const sectionMain = document.createElement("section");
+sectionMain.classList.add("content");
+
+mainContainer.appendChild(sectionMain);
+main.appendChild(mainContainer);
+fragmentMain.appendChild(main);
+
+wrapper.appendChild(fragmentMain);
+
+/* ------------------------------------Create book card-------------------------------------- */
+
+function createBookCard() {
+    setTimeout(function () {
+        const fragmentBookCard = document.createDocumentFragment();
+
+        for (let i = 0; i < books.length; i++) {
+            const bookCard = document.createElement("div");
+            bookCard.classList.add("book");
+
+            const bookContainer = document.createElement("div");
+            bookContainer.setAttribute('id', i);
+            bookContainer.classList.add("book__container");
+
+            const bookCover = document.createElement("div");
+            bookCover.classList.add("book__cover");
+
+            const img = document.createElement("img");
+            img.src = books[i].imageLink;
+            img.alt = books[i].title;
+
+            bookCover.appendChild(img);
+
+            const bookTitle = document.createElement("h2");
+            bookTitle.classList.add("book__title");
+            bookTitle.textContent = books[i].title;
+
+            const bookAuthor = document.createElement("h3");
+            bookAuthor.classList.add("book__autor");
+            bookAuthor.textContent = books[i].author;
+
+            const bookPrice = document.createElement("span");
+            bookPrice.classList.add("book__price");
+            bookPrice.textContent = `${books[i].price}$`;
+
+            bookContainer.appendChild(bookCover);
+            bookContainer.appendChild(bookTitle);
+            bookContainer.appendChild(bookAuthor);
+            bookContainer.appendChild(bookPrice);
+
+            bookCard.appendChild(bookContainer);
+            fragmentBookCard.appendChild(bookCard);
+        }
+
+        const contentBookCard= document.querySelector(".content");
+        contentBookCard.appendChild(fragmentBookCard);
+    }, 300);
+}
+
+createBookCard();
+
+/* ------------------------------------ShoppingCart--------------------------------------------- */
+
+const fragmentShoppingCart = document.createDocumentFragment();
+
+const sectionShoppingCart = document.createElement("section");
+sectionShoppingCart.classList.add("shopping-cart");
+
+fragmentShoppingCart.appendChild(sectionShoppingCart);
+
+mainContainer.appendChild(fragmentShoppingCart);
 
 /* ------------------------------------footer--------------------------------------------- */
 
@@ -119,7 +218,7 @@ footerContainer.append(githubLink, yearSpan, rsSchoolLink);
 footer.appendChild(footerContainer);
 fragmentFooter.appendChild(footer);
 
-document.body.appendChild(fragmentFooter);
+wrapper.appendChild(fragmentFooter);
 
 /* ------------------------------------popup--------------------------------------------- */
 
@@ -169,55 +268,4 @@ fetch("../assets/json/books.json") //path to the file with json data
         console.log(books);
     });
 
-/* ------------------------------------Create book card-------------------------------------- */
 
-let content = document.querySelector('.content');
-
-function createBookCard() {
-    setTimeout(function () {
-        const fragment = document.createDocumentFragment();
-
-        for (let i = 0; i < books.length; i++) {
-            const bookCard = document.createElement("div");
-            bookCard.classList.add("book");
-
-            const bookContainer = document.createElement("div");
-            bookContainer.setAttribute('id', i);
-            bookContainer.classList.add("book__container");
-
-            const bookCover = document.createElement("div");
-            bookCover.classList.add("book__cover");
-
-            const img = document.createElement("img");
-            img.src = books[i].imageLink;
-            img.alt = books[i].title;
-
-            bookCover.appendChild(img);
-
-            const bookTitle = document.createElement("h2");
-            bookTitle.classList.add("book__title");
-            bookTitle.textContent = books[i].title;
-
-            const bookAuthor = document.createElement("h3");
-            bookAuthor.classList.add("book__autor");
-            bookAuthor.textContent = books[i].author;
-
-            const bookPrice = document.createElement("span");
-            bookPrice.classList.add("book__price");
-            bookPrice.textContent = `${books[i].price}$`;
-
-            bookContainer.appendChild(bookCover);
-            bookContainer.appendChild(bookTitle);
-            bookContainer.appendChild(bookAuthor);
-            bookContainer.appendChild(bookPrice);
-
-            bookCard.appendChild(bookContainer);
-            fragment.appendChild(bookCard);
-        }
-
-        const content = document.querySelector(".content");
-        content.appendChild(fragment);
-    }, 300);
-}
-
-createBookCard();

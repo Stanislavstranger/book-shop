@@ -299,6 +299,16 @@ a {
     }
 }
 
+@media (max-width: 450px) {
+    .burger__button {
+        top: 38px;
+        right: 30px;
+    }
+    .header__menu._active {
+        top: 80px;
+    }
+}
+
 /* ------------------------------------main--------------------------------------------- */
 
 .main {
@@ -328,12 +338,7 @@ a {
 }
 
 .book:hover {
-    cursor: pointer;
-    cursor: url('../assets/icons/magnifier-plus.svg'), auto;
-}
-
-.book:hover {
-    cursor: url('../assets/icons/magnifier-plus.svg'), auto;
+    cursor: url('../assets/icons/magnifier-plus.svg'), zoom-in;
 }
 
 .book:active {
