@@ -151,7 +151,7 @@ function createBookCard() {
 
             const bookPrice = document.createElement("span");
             bookPrice.classList.add("book__price");
-            bookPrice.textContent = `${books[i].price}$`;
+            bookPrice.textContent = `$${books[i].price}`;
 
             const bookIcons = document.createElement("div")
             bookIcons.classList.add("book__icons");

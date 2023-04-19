@@ -171,8 +171,6 @@ h4 {
 .button_active {
     background: #F1CDB3;
     color: #292929;
-    padding-bottom: 15px;
-    padding-top: 15px;
 }
 
 .button_active:hover {
@@ -504,7 +502,7 @@ h4 {
 
 .transfer-area {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 20px;
     justify-content: center;
 }
