@@ -377,11 +377,6 @@ fetch("../assets/json/books.json") //path to the file with json data
 
 /* --------------------------------input logic------------------------------------------ */
 
-/* const minusBtn = document.querySelector('.minus-button');
-const plusBtn = document.querySelector('.plus-button');
-const inputField = document.querySelector('#quantity'); */
-
-// при клике на кнопку минус уменьшаем значение на 1
 minusButton.addEventListener('click', function (event) {
     event.preventDefault();
     let currentValue = parseInt(inputField.value);
@@ -390,7 +385,6 @@ minusButton.addEventListener('click', function (event) {
     }
 });
 
-// при клике на кнопку плюс увеличиваем значение на 1
 plusButton.addEventListener('click', function (event) {
     event.preventDefault();
     let currentValue = parseInt(inputField.value);
@@ -398,3 +392,12 @@ plusButton.addEventListener('click', function (event) {
         inputField.value = currentValue + 1;
     }
 });
+
+/* --------------------------------control before unload----------------------------------- */
+
+function BeforeUnload(event) {
+    event.preventDefault();
+    event.returnValue = " ";
+}
+
+window.addEventListener("beforeunload", BeforeUnload);
