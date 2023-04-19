@@ -32,7 +32,7 @@ setTimeout(function () {
         }
 
         function totalAll() {
-            const transferArea = document.querySelector('.transfer-area');
+            const transferArea = document.querySelector('.transfer-area'); console.log(transferArea);
             const inputElements = transferArea.querySelectorAll('input');
             let total = 0;
 
@@ -86,6 +86,32 @@ setTimeout(function () {
             total.textContent = "Total: 0";
         }
     });
+
+    function dropInit() {
+        const dropAreaOut = document.querySelector('.content');
+        const dropAreaIn = document.querySelector('.shopping-cart-all');
+        const dropItems = dropAreaOut.querySelectorAll('.book__container');
+        let draggedItem;
+        for (let i = 0; i < dropItems.length; i++) {
+            dropItems[i].draggable = true;
+            dropItems[i].onmousedown = function () {
+                draggedItem = dropItems[i].id;
+                console.log(draggedItem);
+            };
+        }
+
+        dropAreaIn.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        dropAreaIn.addEventListener(`drop`, (e) => {
+            if ((draggedItem)&&(!checkIfBookInCart(draggedItem))) {
+                addBooks(draggedItem);
+            }
+        });
+    }
+
+    dropInit();
 
     // настройте наблюдение за изменениями в DOM
     observer.observe(document.body, {
