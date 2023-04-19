@@ -168,11 +168,6 @@ h4 {
     }
 }
 
-.button._active:hover {
-    background: #FDDCC4;
-    border: none;
-}
-
 .button_active {
     background: #F1CDB3;
     color: #292929;
@@ -180,7 +175,13 @@ h4 {
     padding-top: 15px;
 }
 
+.button_active:hover {
+    background: #FDDCC4;
+    border: none;
+}
+
 .button_inactive {
+    cursor: auto;
     color: #CDCDCD;
     border: 2px solid #CDCDCD;
 }
@@ -378,6 +379,7 @@ h4 {
 .book {
     flex: 0 0 150px;
     width: 100%;
+    max-height: 378px;
 }
 
 .book:hover {
@@ -491,7 +493,55 @@ h4 {
     margin-top: 20px;
     text-transform: uppercase;
     color: #CDCDCD;
+    margin-bottom: 20px;
 }
+
+.container-transfer-area {
+    width: 100%;
+    max-height: 58vw;
+    overflow-x: auto;
+}
+
+.transfer-area {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+}
+
+.transfer-area .book {
+    margin-bottom: 70px;
+    cursor: auto;
+}
+
+.transfer-area .book__cover {
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.transfer-area button {
+    padding: 8px 8px;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 100px;
+}
+
+label {
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.quantity-input {
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.quantity-input button {
+    visibility: hidden;
+}
+
+
 
 @keyframes initAnimation {
     0% {

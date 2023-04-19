@@ -230,15 +230,67 @@ const transferHere = document.createElement("h4");
 transferHere.classList.add("transfer-here");
 transferHere.textContent = "transfer here";
 
+const containerTransferArea = document.createElement("div");
+containerTransferArea.classList.add("container-transfer-area");
+
+const transferArea = document.createElement("section");
+transferArea.classList.add("transfer-area");
+
 sectionShoppingCart.appendChild(infoShoppingCart);
+sectionShoppingCart.appendChild(containerTransferArea);
 infoShoppingCart.appendChild(addedBooks);
 infoShoppingCart.appendChild(imgShoppingCart);
 infoShoppingCart.appendChild(total);
 infoShoppingCart.appendChild(checkoutLink);
 infoShoppingCart.appendChild(transferHere);
+containerTransferArea.appendChild(transferArea);
 fragmentShoppingCart.appendChild(sectionShoppingCart);
 
 mainContainer.appendChild(fragmentShoppingCart);
+
+/* ------------------------------------create input--------------------------------------------- */
+
+const fragmentInput = document.createDocumentFragment();
+
+const inputLabel = document.createElement("label");
+inputLabel.for ="quantity";
+inputLabel.textContent = "Quantity";
+
+const quantityInput = document.createElement("div");
+quantityInput.classList.add("quantity-input");
+
+const minusButton = document.createElement("button");
+minusButton.type = "button";
+minusButton.classList.add("minus-button");
+minusButton.name = "button";
+
+const fasFaMinus = document.createElement("i");
+fasFaMinus.classList.add("fas", "fa-minus");
+
+const inputField = document.createElement("input");
+inputField.type = "number";
+inputField.id = "quantity";
+inputField.name = "quantity";
+inputField.min = "1";
+inputField.max = "10";
+inputField.value = "1";
+
+const plusButton = document.createElement("button");
+minusButton.type = "button";
+minusButton.classList.add("plus-button");
+minusButton.name = "button";
+
+const fasFaPlus = document.createElement("i");
+fasFaPlus.classList.add("fas", "fa-plus");
+
+quantityInput.appendChild(minusButton);
+minusButton.appendChild(fasFaMinus);
+quantityInput.appendChild(inputField);
+quantityInput.appendChild(plusButton);
+plusButton.appendChild(fasFaPlus);
+
+fragmentInput.appendChild(inputLabel);
+fragmentInput.appendChild(quantityInput);
 
 /* ------------------------------------footer--------------------------------------------- */
 
@@ -322,3 +374,27 @@ fetch("../assets/json/books.json") //path to the file with json data
         books = data;
         console.log(books);
     });
+
+/* --------------------------------input logic------------------------------------------ */
+
+/* const minusBtn = document.querySelector('.minus-button');
+const plusBtn = document.querySelector('.plus-button');
+const inputField = document.querySelector('#quantity'); */
+
+// при клике на кнопку минус уменьшаем значение на 1
+minusButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    let currentValue = parseInt(inputField.value);
+    if (currentValue > 1) {
+        inputField.value = currentValue - 1;
+    }
+});
+
+// при клике на кнопку плюс увеличиваем значение на 1
+plusButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    let currentValue = parseInt(inputField.value);
+    if (currentValue < 100) {
+        inputField.value = currentValue + 1;
+    }
+});

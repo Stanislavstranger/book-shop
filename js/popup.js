@@ -1,5 +1,7 @@
+
 setTimeout(function () {
     const popupLinks = document.querySelectorAll('.magnifier-plus'); console.log(popupLinks);
+
     const body = document.querySelector('body');
     const lockPadding = document.querySelectorAll('.lock-padding');
 
@@ -180,5 +182,5 @@ setTimeout(function () {
     }
     bodyLock();
     bodyUnLock();
-}, 300);
+}, 400);
 
