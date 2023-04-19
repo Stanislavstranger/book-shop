@@ -195,7 +195,7 @@ function createBookCard() {
 
         const contentBook = document.querySelector(".content");
         contentBook.appendChild(fragmentBook);
-    }, 300);
+    }, 400);
 }
 
 createBookCard();
@@ -212,7 +212,7 @@ infoShoppingCart.classList.add("info-shopping-cart");
 
 const addedBooks = document.createElement("h4");
 addedBooks.classList.add("added-books");
-addedBooks.textContent = "Added: 0";
+addedBooks.textContent = "Position added: 0";
 
 const imgShoppingCart = document.createElement("div");
 imgShoppingCart.classList.add("img-shopping-cart");

@@ -33,19 +33,39 @@ setTimeout(function () {
 
         function totalAll() {
             const transferArea = document.querySelector('.transfer-area');
-            const prices = transferArea.querySelectorAll('.book__price');
-
+            const inputElements = transferArea.querySelectorAll('input');
             let total = 0;
 
-            prices.forEach(price => {
-                const priceText = price.textContent.replace('$', '');
+            inputElements.forEach(function (inputElement) {
+                const quantity = parseFloat(inputElement.value);
+                if (isNaN(quantity)) {
+                    return;
+                }
+
+                const priceElement = inputElement.closest('.book__container').querySelector('.book__price');
+                if (!priceElement) {
+                    return;
+                }
+
+                const priceText = priceElement.textContent.replace('$', '');
                 const priceValue = parseFloat(priceText);
-                total += priceValue;
+
+                total += priceValue * quantity;
             });
 
             console.log(total);
             return total;
         }
+
+        // Назначаем обработчик события input для каждого input в transferArea
+        const transferArea = document.querySelector('.transfer-area');
+        const inputElements = transferArea.querySelectorAll('input'); console.log(inputElements);
+
+        inputElements.forEach(function (inputElement) {
+            inputElement.addEventListener('input', function () {
+                total.textContent = `Total: $${totalAll()}`;
+            });
+        });
 
         function checkOutActive() {
             const checkOutActiveButton = document.querySelector(".checkout-link");
@@ -53,9 +73,8 @@ setTimeout(function () {
             checkOutActiveButton.classList.remove("button_inactive");
             checkOutActiveButton.classList.add("button_active");
             console.log(delButtons.length);
-            addedBooks.textContent = `Added: ${delButtons.length}`;
-            total.textContent = `Added: $${totalAll()}`;
-
+            addedBooks.textContent = `Position added: ${delButtons.length}`;
+            total.textContent = `Total: $${totalAll()}`;
         }
 
         function checkOutInActive() {
@@ -63,7 +82,7 @@ setTimeout(function () {
             console.log(checkOutActiveButton);
             checkOutActiveButton.classList.remove("button_active");
             checkOutActiveButton.classList.add("button_inactive");
-            addedBooks.textContent = "Added: 0";
+            addedBooks.textContent = "Position added: 0";
             total.textContent = "Total: 0";
         }
     });
