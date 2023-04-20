@@ -677,7 +677,7 @@ label {
 .my-github::before {
     content: '';
     position: absolute;
-    top: -10px;
+    top: -11px;
     left: 0;
     width: 40px;
     height: 40px;
@@ -974,18 +974,17 @@ label {
 
 .delivery-form._active {
     display: block;
-    flex: 1 1 40%;
+    flex: 1 1 45%;
 }
 
 .delivery-form__container {}
 
 .delivery-form__content {
-    display: flex;
     color: rgb(75, 74, 74);
     margin: 0 auto;
-    padding: 40px 10%;
+    padding: 30px 8%;
     background-color: transparent;
-    line-height: 30px;
+    line-height: 25px;
 }
 
 .main-form {}
@@ -998,7 +997,30 @@ label {
 }
 
 .main-form__item {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="tel"] {
+    width: 55%;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+input[type="tel"]::placeholder {
+    opacity: 0.5;
+}
+
+input:focus{
+    box-shadow: 0 0 10px 5px rgba(75, 74, 74, 0.3);
+}
+
+.delivery-form span{
+    display: inline-block;
+    font-size: 10px;
+    line-height: 0;
+    padding: 0;
 }
 
 .payment-method__cash {}

@@ -29,12 +29,37 @@ setTimeout(function () {
 
     checkoutToggle();
 
-    function form() {
-        const mainForm = document.forms[0];
-        console.log(mainForm);
+    const mainForm = document.forms.main;
+    const firstName = mainForm['first-name'];
+    const lastName = mainForm['last-name'];
+    const cityName = mainForm['city-name'];
+    const streetNumber = mainForm['street-number'];
+    const houseNumber = mainForm['house-number'];
+    const apartmentNumber = mainForm['apartment-number'];
+    const phoneNumber = mainForm['phone-number'];
+    const deliveryDate = mainForm['delivery-date'];
+    const paymentMethod = mainForm['payment-method'];
+    const chooseGift = mainForm['choose-gift'];
+    const placeholder = mainForm
+
+    function hiddenPlaceholder() {
+        const inputs = document.querySelectorAll('input');
+        let mainFormInputPlaceholder;
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                mainFormInputPlaceholder = input.getAttribute('placeholder')
+                input.removeAttribute('placeholder');
+            });
+
+            input.addEventListener('blur', () => {
+                input.setAttribute('placeholder', mainFormInputPlaceholder);
+            });
+        });
+
     }
 
-    form();
+    hiddenPlaceholder();
 
     /* ------------------------------------choose gift radios (only two)------------------------------------- */
 
