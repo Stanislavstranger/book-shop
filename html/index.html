@@ -16,13 +16,88 @@
 
     <!-- Ниже код для создания формы заказа. По условию он должен быть создан в html -->
 
-    <div class="delivery-form">
-            <div class="delivery-form__container">
-                <div class="delivery-form__content">
+    <section class="delivery-form">
+        <div class="delivery-form__container">
+            <div class="delivery-form__content">
+                <form name="main" class="main-form" action="#">
+                    <div class="main-form__column">
+                        <h3 class="main-form__title">Fill the form</h3>
+                        <div class="main-form__item">
+                            <label for="first-name">Name:</label>
+                            <input type="text" id="first-name" name="first-name" pattern="[A-Za-zА-Яа-яЁё]+">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="last-name">Surname:</label>
+                            <input type="text" id="last-name" name="last-name" pattern="[A-Za-zА-Яа-яЁё]+">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="city-name">City:</label>
+                            <input type="text" id="city-name" name="city-name" pattern="[A-Za-zА-Яа-яЁё\s]+">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="street-number">Street number:</label>
+                            <input type="text" id="street-number" name="street-number" pattern="[0-9]+">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="house-number">House number:</label>
+                            <input type="text" id="house-number" name="house-number" pattern="[0-9]+">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="apartment-number" class="main-form__label">Apartment number:</label>
+                            <input type="text" id="apartment-number" name="apartment-number" pattern="[0-9]+">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="phone" class="main-form__label">Phone number:</label>
+                            <input type="tel" name="phone" id="phone">
+                        </div>
+                        <div class="main-form__item">
+                            <label for="delivery-date">Delivery date:</label>
+                            <input type="date" id="delivery-date" name="delivery-date">
+                        </div>
 
-                </div>
+                        <div class="main-form__item">
+                            <label for="payment-method radio-header">Payment method:</label>
+                            <div class="payment-method__cash">
+                                <input type="radio" name="payment-method" id="payment-method__cash" checked>
+                                <label for="payment-method__cash">Cash:</label>
+                            </div>
+                            <div class="payment-method__card">
+                                <input type="radio" name="payment-method" id="payment-method__card">
+                                <label for="payment-method__card">Card:</label>
+                            </div>
+                            <div class="payment-method__card-to-courier">
+                                <input type="radio" name="payment-method" id="payment-method__card-to-courier">
+                                <label for="payment-method__card-to-courier">By card to the courier:</label>
+                            </div>
+                        </div>
+                        <div class="main-form__item">
+                            <label for="choose-gift radio-header">Choose two gifts:</label>
+                            <div class="choose-gift">
+                                <input type="checkbox" name="choose-gift" id="pack-as-a-gift" value="Pack as a gift">
+                                <label for="pack-as-a-gift">Pack as a gift</label>
+                            </div>
+                            <div class="choose-gift">
+                                <input type="checkbox" name="choose-gift" id="add-postcard" value="Add postcard">
+                                <label for="add-postcard">Add postcard</label>
+                            </div>
+                            <div class="choose-gift">
+                                <input type="checkbox" name="choose-gift" id="provide-discount"
+                                    value="Provide 2% discount to the next time">
+                                <label for="provide-discount">Provide 2% discount to the next time</label>
+                            </div>
+                            <div class="choose-gift">
+                                <input type="checkbox" name="choose-gift" id="branded-pen"
+                                    value="Branded pen or pencil">
+                                <label for="branded-pen">Branded pen or pencil</label>
+                            </div>
+                        </div>
+
+                        <button class="button button_inactive">Complete</button>
+                    </div>
+                </form>
             </div>
-    </div>
+        </div>
+    </section>
 
     <!-- Выше код для создания формы заказа. По условию он должен быть создан в html -->
 

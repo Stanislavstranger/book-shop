@@ -395,9 +395,9 @@ plusButton.addEventListener('click', function (event) {
 
 /* --------------------------------control before unload----------------------------------- */
 
-function BeforeUnload(event) {
+/* function BeforeUnload(event) {
     event.preventDefault();
     event.returnValue = " ";
 }
 
-window.addEventListener("beforeunload", BeforeUnload);
+window.addEventListener("beforeunload", BeforeUnload); */
