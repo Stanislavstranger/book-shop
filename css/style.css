@@ -1000,27 +1000,36 @@ label {
     margin-bottom: 10px;
 }
 
-input[type="text"],
-input[type="number"],
-input[type="tel"] {
+.delivery-form input[type="text"],
+.delivery-form input[type="number"],
+.delivery-form input[type="tel"] {
     width: 55%;
 }
 
-input[type="text"]::placeholder,
-input[type="number"]::placeholder,
-input[type="tel"]::placeholder {
+.delivery-form input[type="text"]::placeholder,
+.delivery-form input[type="number"]::placeholder,
+.delivery-form input[type="tel"]::placeholder {
     opacity: 0.5;
 }
 
-input:focus{
+.delivery-form input:focus {
     box-shadow: 0 0 10px 5px rgba(75, 74, 74, 0.3);
+    /* box-shadow: 0 0 10px 5px rgba(214, 32, 32, 0.3); */
 }
 
-.delivery-form span{
+.delivery-form input._error {
+    box-shadow: 0 0 10px 5px rgba(214, 32, 32, 0.3);
+}
+
+.delivery-form span {
     display: inline-block;
     font-size: 10px;
     line-height: 0;
     padding: 0;
+}
+
+.delivery-form span._error {
+    color: rgba(214, 32, 32, 0.5);
 }
 
 .payment-method__cash {}
