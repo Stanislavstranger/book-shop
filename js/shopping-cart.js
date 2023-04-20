@@ -57,7 +57,6 @@ setTimeout(function () {
             return total;
         }
 
-        // Назначаем обработчик события input для каждого input в transferArea
         const transferArea = document.querySelector('.transfer-area');
         const inputElements = transferArea.querySelectorAll('input'); console.log(inputElements);
 

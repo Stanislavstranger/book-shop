@@ -15,9 +15,6 @@ setTimeout(function () {
         for (let i = 0; i < popupLinks.length; i++) {
             const popupLink = popupLinks[i];
             popupLink.addEventListener('click', function (e) {
-                /* const popupName = popupLink.getAttribute('href').replace('#', '');
-                const currentPopup = document.getElementById(popupName); */
-                /* popupOpen(currentPopup); console.log(currentPopup); */
                 createPopup(this.id);
                 popupOpen(popup); console.log(popup);
                 e.preventDefault();

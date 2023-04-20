@@ -182,6 +182,7 @@ h4 {
     cursor: auto;
     color: #CDCDCD;
     border: 2px solid #CDCDCD;
+    pointer-events: none;
 }
 
 /* ------------------------------------header--------------------------------------------- */
@@ -374,6 +375,10 @@ h4 {
     gap: 100px;
 }
 
+.content__inactive {
+    display: none;
+}
+
 .book {
     flex: 0 0 150px;
     width: 100%;
@@ -425,10 +430,6 @@ h4 {
     padding-bottom: 10px;
 }
 
-/* .book a {
-    text-align: center;
-} */
-
 .book img {
     height: 40px;
     width: auto;
@@ -463,6 +464,10 @@ h4 {
     padding-top: 30px;
 }
 
+.shopping-cart-all._changed{
+    flex: 0 0 50%;
+}
+
 .info-shopping-cart {
     margin: 0 auto;
     display: flex;
@@ -477,8 +482,16 @@ h4 {
     background: url("../assets/image/8.png") center center/ 150% auto no-repeat;
 }
 
+.img-shopping-cart._changed{
+    margin: 0 auto;
+    width: 40%;
+    height: 15vmin;
+    background: url("../assets/image/8.png") center center/ 100% auto no-repeat;
+}
+
 @media screen and (orientation: landscape) and (max-width: 1200px) {
     .img-shopping-cart {
+        width: 100%;
         height: 20vmax;
     }
 }
@@ -487,11 +500,20 @@ h4 {
     margin-bottom: 30px;
 }
 
+.checkout-link._changed{
+    width: 50%;
+    margin-bottom: 20px;
+}
+
 .transfer-here {
     margin-top: 20px;
     text-transform: uppercase;
     color: #CDCDCD;
     margin-bottom: 20px;
+}
+
+.transfer-here._changed{
+    display: none;
 }
 
 .container-transfer-area {
@@ -505,6 +527,12 @@ h4 {
     flex-direction: column-reverse;
     padding: 20px;
     justify-content: center;
+}
+
+.transfer-area._changed{
+    flex-direction: row;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
 .transfer-area .book {
@@ -936,4 +964,27 @@ label {
     height: 4px;
     border-radius: 50%;
     background: rgb(248, 196, 140);
+}
+
+/* ------------------------------------delivery-form--------------------------------------------- */
+
+/* .delivery-form {
+    opacity: 1;
+    visibility: visible;
+} */
+
+.delivery-form__container {
+    position: relative;
+    max-width: 1004px;
+    max-height: 604px;
+}
+
+.delivery-form__content{
+    position: relative;
+    display: flex;
+    background: #FAFAFA;
+    color: rgb(75, 74, 74);
+    border-radius: 9px;
+    max-width: 89.64%;
+    margin: 0 auto;
 }
