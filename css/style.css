@@ -1032,6 +1032,13 @@ label {
     color: rgba(214, 32, 32, 0.5);
 }
 
+.redMessage-delivery-date {
+    color: rgba(214, 32, 32, 0.5);
+}
+.redMessage-gift{
+    color: rgba(214, 32, 32, 0.5);
+}
+
 .payment-method__cash {}
 
 .payment-method__card {}

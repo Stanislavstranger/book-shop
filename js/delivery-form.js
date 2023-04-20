@@ -39,6 +39,8 @@ setTimeout(function () {
     const deliveryDate = mainForm['delivery-date'];
     const paymentMethod = mainForm['payment-method'];
     const chooseGift = mainForm['choose-gift'];
+    const mainFormButton = mainForm.querySelector('.main-form__button');
+    const redMessagesDeliveryDAte = document.querySelector('.redMessage-delivery-date');
 
     function isValidName(name) {
         const regex = /^[a-zA-Zа-яА-Я]{4,}$/; // только строки, длина не менее 4 символов
@@ -70,17 +72,30 @@ setTimeout(function () {
         return regex.test(flatNumber);
     }
 
+    function isValidateDateFormat(deliveryDate) {
+        const regex = /^(\d{4})-(\d{2})-(\d{2})$/;
+        return regex.test(deliveryDate);
+    }
+
     function addError(i) {
         i.classList.add('_error');
         i.nextElementSibling.classList.add('_error');
+        i.removeAttribute('date-state', true);
     }
 
     function removeError(i) {
         i.classList.remove('_error');
         i.nextElementSibling.classList.remove('_error');
+        if (i.value) {
+            i.setAttribute('date-state', true);
+            unLockButtonComplete();
+        } else {
+            i.removeAttribute('date-state', true);
+        }
     }
 
-    const inputs = document.querySelectorAll('input');
+    const mainFormList = document.querySelector('.main-form__list');
+    const inputs = mainFormList.querySelectorAll('input'); console.log(inputs);
     const placeholders = {};
 
     inputs.forEach(input => {
@@ -99,6 +114,7 @@ setTimeout(function () {
             if (!value) {
                 removeError(input);
                 input.setAttribute('placeholder', placeholders[input.name]);
+                LockButtonComplete();
             } else {
                 switch (input.name) {
                     case 'first-name':
@@ -141,6 +157,16 @@ setTimeout(function () {
                             addError(input);
                         } else {
                             removeError(input);
+                        }
+                        break;
+                    case 'delivery-date':
+                        console.log(value);
+                        if (!isValidateDateFormat(value)) {
+                            addError(input);
+                            redMessagesDeliveryDAte.style.display = 'inline';
+                        } else {
+                            removeError(input);
+                            redMessagesDeliveryDAte.style.display = 'none';
                         }
                         break;
                     default:
@@ -188,7 +214,40 @@ setTimeout(function () {
                     checkbox.disabled = false;
                 });
             }
+            LockButtonComplete();
+            unLockButtonComplete();
+            areTwoGiftsSelected();
         });
     });
+
+    function areTwoGiftsSelected() {
+        const redMessagesGift = document.querySelector('.redMessage-gift');
+        if (checkedCount === 2) {
+            redMessagesGift.style.display = 'none';
+            return true;
+        } else {
+            redMessagesGift.style.display = 'inline';
+            return false;
+        }
+    }
+
+    function LockButtonComplete() {
+        mainFormButton.classList.add('button_inactive');
+        mainFormButton.classList.remove('button_active');
+    }
+
+    function unLockButtonComplete() {
+        let shouldUnlock = true;
+        inputs.forEach(input => {
+            if (!(input.getAttribute('date-state'))) {
+                shouldUnlock = false;
+                return;
+            }
+        });
+        if ((shouldUnlock) && (areTwoGiftsSelected())) {
+            mainFormButton.classList.remove('button_inactive');
+            mainFormButton.classList.add('button_active');
+        }
+    }
 
 }, 500);

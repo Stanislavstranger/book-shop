@@ -22,39 +22,42 @@
                 <form name="main" class="main-form" action="#">
                     <div class="main-form__column">
                         <h3 class="main-form__title">Fill the form</h3>
-                        <div class="main-form__item">
-                            <label for="first-name">Name:</label>
-                            <input type="text" id="first-name" name="first-name" pattern="[A-Za-zА-Яа-яЁё]+" placeholder="Enter your first name">
-                            <span>the length not less than 4 symbols, strings only, without spaces</span>
-                        </div>
-                        <div class="main-form__item">
-                            <label for="last-name">Lastname:</label>
-                            <input type="text" id="last-name" name="last-name" pattern="[A-Za-zА-Яа-яЁё]+" placeholder="Enter your last name">
-                            <span>the length not less than 5 symbols, strings only, without spaces</span>
-                        </div>
-                        <div class="main-form__item">
-                            <label for="city-name">City:</label>
-                            <input type="text" id="city-name" name="city-name" pattern="[A-Za-zА-Яа-яЁё\s]+" placeholder="Enter your city">
-                            <span>the length not less than 5 symbols, strings only, without spaces</span>
-                        </div>
-                        <div class="main-form__item">
-                            <label for="street-name">Street number:</label>
-                            <input type="text" id="street-name" name="street-name" pattern="[0-9]+" placeholder="Enter your street">
-                            <span>the length not less than 5 symbols, the numbers are allowed</span>
-                        </div>
-                        <div class="main-form__item">
-                            <label for="house-number">House number:</label>
-                            <input type="text" id="house-number" name="house-number" pattern="[0-9]+" placeholder="Enter your house number">
-                            <span>numbers only, positive numbers only</span>
-                        </div>
-                        <div class="main-form__item">
-                            <label for="flat-number" class="main-form__label">Flat number:</label>
-                            <input type="text" id="flat-number" name="flat-number" pattern="[0-9]+" placeholder="Enter your flat number">
-                            <span>numbers only, positive numbers only, the dash symbol is allowed</span>
-                        </div>
-                        <div class="main-form__item">
-                            <label for="delivery-date">Delivery date:</label>
-                            <input type="date" id="delivery-date" name="delivery-date">
+                        <div class="main-form__list">
+                            <div class="main-form__item">
+                                <label for="first-name">Name:</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+                                <span>the length not less than 4 symbols, strings only, without spaces</span>
+                            </div>
+                            <div class="main-form__item">
+                                <label for="last-name">Lastname:</label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+                                <span>the length not less than 5 symbols, strings only, without spaces</span>
+                            </div>
+                            <div class="main-form__item">
+                                <label for="city-name">City:</label>
+                                <input type="text" id="city-name" name="city-name" placeholder="Enter your city">
+                                <span>the length not less than 5 symbols, strings only, without spaces</span>
+                            </div>
+                            <div class="main-form__item">
+                                <label for="street-name">Street name:</label>
+                                <input type="text" id="street-name" name="street-name" placeholder="Enter your street">
+                                <span>the length not less than 5 symbols, the numbers are allowed</span>
+                            </div>
+                            <div class="main-form__item">
+                                <label for="house-number">House number:</label>
+                                <input type="text" id="house-number" name="house-number" placeholder="Enter your house number">
+                                <span>numbers only, positive numbers only</span>
+                            </div>
+                            <div class="main-form__item">
+                                <label for="flat-number" class="main-form__label">Flat number:</label>
+                                <input type="text" id="flat-number" name="flat-number" placeholder="Enter your flat number">
+                                <span>numbers only, positive numbers only, the dash symbol is allowed</span>
+                            </div>
+                            <div class="main-form__item">
+                                <label for="delivery-date">Delivery date:</label>
+                                <input type="date" id="delivery-date" name="delivery-date">
+                                <span class="redMessage-delivery-date">select delivery date</span>
+                            </div>
                         </div>
 
                         <div class="main-form__item">
@@ -74,6 +77,7 @@
                         </div>
                         <div class="main-form__item">
                             <label for="choose-gift radio-header">Choose two gifts:</label>
+                            <span class="redMessage-gift">choose two gifts</span>
                             <div class="choose-gift">
                                 <input type="checkbox" name="choose-gift" id="pack-as-a-gift" value="Pack as a gift">
                                 <label for="pack-as-a-gift">Pack as a gift</label>
@@ -94,7 +98,7 @@
                             </div>
                         </div>
 
-                        <button class="button button_inactive">Complete</button>
+                        <button class="main-form__button button button_inactive">Complete</button>
                     </div>
                 </form>
             </div>
