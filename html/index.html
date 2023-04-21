@@ -63,15 +63,15 @@
                         <div class="main-form__item">
                             <label for="payment-method radio-header">Payment method:</label>
                             <div class="payment-method__cash">
-                                <input type="radio" name="payment-method" id="payment-method__cash" checked>
+                                <input type="radio" name="payment-method" id="payment-method__cash" value="Cash" checked>
                                 <label for="payment-method__cash">Cash:</label>
                             </div>
                             <div class="payment-method__card">
-                                <input type="radio" name="payment-method" id="payment-method__card">
+                                <input type="radio" name="payment-method" id="payment-method__card" value="Card">
                                 <label for="payment-method__card">Card:</label>
                             </div>
                             <div class="payment-method__card-to-courier">
-                                <input type="radio" name="payment-method" id="payment-method__card-to-courier">
+                                <input type="radio" name="payment-method" id="payment-method__card-to-courier" value="By card to the courier">
                                 <label for="payment-method__card-to-courier">By card to the courier:</label>
                             </div>
                         </div>
@@ -99,11 +99,23 @@
                         </div>
 
                         <button class="main-form__button button button_inactive">Complete</button>
+
                     </div>
                 </form>
             </div>
         </div>
     </section>
+    <div class="delivery-summary">
+        <div class="delivery-summary__body">
+            <div class="delivery-summary__container">
+                <button id="close-delivery-summary" class="button-round"><img
+                    src="../../assets/icons/close.svg" alt="close"></button>
+                    <div class="delivery-summary__content">
+                        <div id="summary" class="delivery-summary_info"></div>
+                    </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Выше код для создания формы заказа. По условию он должен быть создан в html -->
 

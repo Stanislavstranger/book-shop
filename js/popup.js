@@ -163,8 +163,8 @@ setTimeout(function () {
         description1.textContent = books[elem].description;
 
         const description2 = document.createElement('p');
-        description2.classList.add('popup__description');
-        description2.textContent = books[elem].price;
+        description2.classList.add('popup__price');
+        description2.textContent = `$${books[elem].price}`;
 
         text.appendChild(title);
         text.appendChild(subtitle);
@@ -180,4 +180,3 @@ setTimeout(function () {
     bodyLock();
     bodyUnLock();
 }, 400);
-

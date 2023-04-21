@@ -251,3 +251,52 @@ setTimeout(function () {
     }
 
 }, 500);
+
+const form = document.querySelector('.main-form');
+const button = form.querySelector('.main-form__button');
+const summary = document.querySelector('.delivery-summary_info');
+
+function onSubmit(event) {
+    event.preventDefault();
+
+    const firstName = form.elements['first-name'].value;
+    const lastName = form.elements['last-name'].value;
+    const city = form.elements['city-name'].value;
+    const street = form.elements['street-name'].value;
+    const house = form.elements['house-number'].value;
+    const flat = form.elements['flat-number'].value;
+    const deliveryDate = form.elements['delivery-date'].value;
+    const paymentMethod = form.elements['payment-method'].value;
+    const gifts = Array.from(form.elements['choose-gift'])
+        .filter(el => el.checked)
+        .map(el => el.value);
+
+    const summaryText = `<p>Order created.</p>
+        <p>Delivery address:</p>
+        <p>street: ${street},</p>
+        <p>house: ${house}, apartment: ${flat || 'N/A'}.</p>
+        <p>Customer: ${firstName} ${lastName}.</p>
+        <p>Delivery date: ${deliveryDate}.</p>
+        <p>Payment method: ${paymentMethod}.</p>
+        <p>Selected Gifts: ${gifts.join(', ')}.</p>`;
+
+    document.getElementById("summary").innerHTML = summaryText;
+    form.reset();
+    const deliverySummary = document.querySelector('.delivery-summary');
+    deliverySummary.classList.add('open');
+}
+
+button.addEventListener('click', onSubmit);
+
+const closeSummary = document.querySelector('#close-delivery-summary');
+
+if (closeSummary) {
+    closeSummary.addEventListener('click', function (e) {
+        closeDeliverySummary();
+        e.preventDefault();
+    });
+}
+
+function closeDeliverySummary() {
+    location.reload();
+}
