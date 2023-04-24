@@ -58,7 +58,7 @@ setTimeout(function () {
     }
 
     function isValidStreet(street) {
-        const regex = /^[a-zA-Z0-9]{5,}$/; // только строки, длина не менее 5 символов, допускаются цифры
+        const regex = /^[0-9a-zA-Zа-яА-ЯёЁ]{5,}$/; // только строки, длина не менее 5 символов, допускаются цифры
         return regex.test(street);
     }
 
@@ -271,14 +271,14 @@ function onSubmit(event) {
         .filter(el => el.checked)
         .map(el => el.value);
 
-    const summaryText = `<p>Order created.</p>
-        <p>Delivery address:</p>
-        <p>street: ${street},</p>
-        <p>house: ${house}, apartment: ${flat || 'N/A'}.</p>
-        <p>Customer: ${firstName} ${lastName}.</p>
-        <p>Delivery date: ${deliveryDate}.</p>
-        <p>Payment method: ${paymentMethod}.</p>
-        <p>Selected Gifts: ${gifts.join(', ')}.</p>`;
+    const summaryText = `<h3>Order created.</h3>
+        <p>Delivery address: </p>
+        <p>Street: <span>${street}</span></p>
+        <p>House:  <span>${house}, Flat: <span>${flat || 'N/A'}.</span></p>
+        <p>Customer:  <span>${firstName} ${lastName}.</span></p>
+        <p>Delivery date: <span>${deliveryDate}.</span></p>
+        <p>Payment method: <span>${paymentMethod}.</span></p>
+        <p>Selected Gifts: <span>${gifts.join(', ')}.</span></p>`;
 
     document.getElementById("summary").innerHTML = summaryText;
     form.reset();

@@ -460,6 +460,8 @@ h4 {
 
 .shopping-cart-all {
     flex: 0 0 20%;
+    display: flex;
+    flex-direction: column;
     background: url("../assets/image/debut-light.png");
     padding-top: 30px;
 }
@@ -469,6 +471,7 @@ h4 {
 }
 
 .info-shopping-cart {
+    flex: 0 0 20%;
     margin: 0 auto;
     display: flex;
     width: 90%;
@@ -527,6 +530,7 @@ h4 {
     flex-direction: column-reverse;
     padding: 20px;
     justify-content: center;
+    row-gap: 10px;
 }
 
 .transfer-area._changed {
@@ -536,8 +540,12 @@ h4 {
 }
 
 .transfer-area .book {
-    margin-bottom: 70px;
+    margin-bottom: 90px;
     cursor: auto;
+}
+
+.transfer-area .book__container{
+    margin-bottom: 20px;
 }
 
 .transfer-area .book__cover {
@@ -565,6 +573,10 @@ label {
 
 .quantity-input button {
     visibility: hidden;
+}
+
+button.delete {
+    margin-bottom: 20px;
 }
 
 
@@ -1036,7 +1048,8 @@ label {
 .redMessage-delivery-date {
     color: rgba(214, 32, 32, 0.5);
 }
-.redMessage-gift{
+
+.redMessage-gift {
     color: rgba(214, 32, 32, 0.5);
 }
 
@@ -1111,4 +1124,17 @@ label {
 .delivery-summary_info {
     padding: 30px;
     line-height: 40px;
+}
+
+.delivery-summary_info h3 {
+    font-size: 30px;
+    font-style: 700;
+}
+
+.delivery-summary_info p {
+    font-style: 700;
+}
+
+.delivery-summary_info span {
+    color: rgb(248, 196, 140);
 }

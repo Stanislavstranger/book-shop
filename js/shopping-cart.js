@@ -1,5 +1,14 @@
+const checkOutActiveButton = document.querySelector(".checkout-link");
+
+function checkOutInActive() {
+    checkOutActiveButton.classList.remove("button_active");
+    checkOutActiveButton.classList.add("button_inactive");
+    addedBooks.textContent = "Position added: 0";
+    total.textContent = "Total: 0";
+}
+
 function deleteBook(bookId) {
-    const book = document.getElementById(bookId); console.log(book);
+    const book = document.getElementById(bookId);
     if (book) {
         book.parentNode.removeChild(book);
     }
@@ -7,84 +16,76 @@ function deleteBook(bookId) {
 
 setTimeout(function () {
     const shoppingCartLinks = document.querySelectorAll(".shopping-cart");
-    const observer = new MutationObserver(function (mutations) {
-        const checkAvailabilityOfBooks = document.querySelectorAll(".in-shopping-cart");
-        console.log(checkAvailabilityOfBooks);
+    const checkAvailabilityOfBooks = document.querySelectorAll(".in-shopping-cart");
+
+    function delBtn() {
         const delButtons = document.getElementsByClassName("delete");
-        console.log(delButtons);
 
         if (delButtons.length > 0) {
             for (let i = 0; i < delButtons.length; i++) {
                 const deleteButton = delButtons[i];
                 deleteButton.addEventListener("click", function (e) {
                     deleteBook(this.parentNode.getAttribute("id"));
+                    if (delButtons.length > 0) {
+                        checkOutActive();
+                    } else {
+                        checkOutInActive();
+                    }
                     e.preventDefault();
                 });
             }
         }
+    }
 
-        console.log(delButtons.length);
+    function checkOutActive() {
+        const delButtons = document.getElementsByClassName("delete");
+        checkOutActiveButton.classList.remove("button_inactive");
+        checkOutActiveButton.classList.add("button_active");
+        addedBooks.textContent = `Position added: ${delButtons.length}`;
+        total.textContent = `Total: $${totalAll()}`;
+    }
 
-        if (delButtons.length > 0) {
-            checkOutActive();
-        } else {
-            checkOutInActive();
-        }
-
-        function totalAll() {
-            const transferArea = document.querySelector('.transfer-area'); console.log(transferArea);
-            const inputElements = transferArea.querySelectorAll('input');
-            let total = 0;
-
-            inputElements.forEach(function (inputElement) {
-                const quantity = parseFloat(inputElement.value);
-                if (isNaN(quantity)) {
-                    return;
-                }
-
-                const priceElement = inputElement.closest('.book__container').querySelector('.book__price');
-                if (!priceElement) {
-                    return;
-                }
-
-                const priceText = priceElement.textContent.replace('$', '');
-                const priceValue = parseFloat(priceText);
-
-                total += priceValue * quantity;
-            });
-
-            console.log(total);
-            return total;
-        }
-
+    function totalAll() {
         const transferArea = document.querySelector('.transfer-area');
-        const inputElements = transferArea.querySelectorAll('input'); console.log(inputElements);
+        const inputElements = transferArea.querySelectorAll('input');
+        let total = 0;
 
+        inputElements.forEach(function (inputElement) {
+            const quantity = parseFloat(inputElement.value);
+            if (isNaN(quantity)) {
+                return;
+            }
+
+            const priceElement = inputElement.closest('.book__container').querySelector('.book__price');
+            if (!priceElement) {
+                return;
+            }
+
+            const priceText = priceElement.textContent.replace('$', '');
+            const priceValue = parseFloat(priceText);
+
+            total += priceValue * quantity;
+        });
+
+        return total;
+    }
+
+    function inputEvent() {
+        const transferArea = document.querySelector('.transfer-area');
+        const inputElements = transferArea.querySelectorAll('input');
         inputElements.forEach(function (inputElement) {
             inputElement.addEventListener('input', function () {
                 total.textContent = `Total: $${totalAll()}`;
             });
         });
+    }
 
-        function checkOutActive() {
-            const checkOutActiveButton = document.querySelector(".checkout-link");
-            console.log(checkOutActiveButton);
-            checkOutActiveButton.classList.remove("button_inactive");
-            checkOutActiveButton.classList.add("button_active");
-            console.log(delButtons.length);
-            addedBooks.textContent = `Position added: ${delButtons.length}`;
-            total.textContent = `Total: $${totalAll()}`;
-        }
-
-        function checkOutInActive() {
-            const checkOutActiveButton = document.querySelector(".checkout-link");
-            console.log(checkOutActiveButton);
-            checkOutActiveButton.classList.remove("button_active");
-            checkOutActiveButton.classList.add("button_inactive");
-            addedBooks.textContent = "Position added: 0";
-            total.textContent = "Total: 0";
-        }
+    transferArea.addEventListener("mouseover", function (e) {
+        delBtn();
+        inputEvent();
     });
+
+
 
     function dropInit() {
         const dropAreaOut = document.querySelector('.content');
@@ -95,7 +96,6 @@ setTimeout(function () {
             dropItems[i].draggable = true;
             dropItems[i].onmousedown = function () {
                 draggedItem = dropItems[i].id;
-                console.log(draggedItem);
             };
         }
 
@@ -104,19 +104,14 @@ setTimeout(function () {
         });
 
         dropAreaIn.addEventListener(`drop`, (e) => {
-            if ((draggedItem)&&(!checkIfBookInCart(draggedItem))) {
+            if ((draggedItem) && (!checkIfBookInCart(draggedItem))) {
                 addBooks(draggedItem);
+                checkOutActive();
             }
         });
     }
 
     dropInit();
-
-    // настройте наблюдение за изменениями в DOM
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-    });
 
     if (shoppingCartLinks.length > 0) {
         for (let i = 0; i < shoppingCartLinks.length; i++) {
@@ -124,6 +119,7 @@ setTimeout(function () {
             shoppingCartLink.addEventListener("click", function (e) {
                 if (!checkIfBookInCart(this.id)) {
                     addBooks(this.id);
+                    checkOutActive();
                 }
                 e.preventDefault();
             });
@@ -131,7 +127,7 @@ setTimeout(function () {
     }
 
     function checkIfBookInCart(bookId) {
-        const checkAvailabilityOfBooks = document.querySelectorAll('.in-shopping-cart'); console.log(checkAvailabilityOfBooks);
+        const checkAvailabilityOfBooks = document.querySelectorAll('.in-shopping-cart');
         for (let i = 0; i < checkAvailabilityOfBooks.length; i++) {
             const book = checkAvailabilityOfBooks[i];
             if (book.getAttribute('id').slice(1) === bookId) {
@@ -187,9 +183,10 @@ setTimeout(function () {
         bookContainer.appendChild(bookAuthor);
         bookContainer.appendChild(bookPrice);
         bookContainer.appendChild(fragmentInputCopy);
+        bookContainer.appendChild(deleteButton);
 
         book.appendChild(bookContainer);
-        book.appendChild(deleteButton);
+        /* book.appendChild(deleteButton); */
         fragment.appendChild(book);
 
         transferArea.appendChild(fragment);
