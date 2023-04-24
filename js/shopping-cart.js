@@ -183,10 +183,9 @@ setTimeout(function () {
         bookContainer.appendChild(bookAuthor);
         bookContainer.appendChild(bookPrice);
         bookContainer.appendChild(fragmentInputCopy);
-        bookContainer.appendChild(deleteButton);
 
         book.appendChild(bookContainer);
-        /* book.appendChild(deleteButton); */
+        book.appendChild(deleteButton);
         fragment.appendChild(book);
 
         transferArea.appendChild(fragment);
